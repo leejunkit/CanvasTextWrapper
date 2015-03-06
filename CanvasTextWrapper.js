@@ -80,13 +80,12 @@
 			} else {
 
 				this._wrap();
-				while (this.textBlockHeight > this.canvas.height) {
+				console.log(this.canvas.height * 0.5);
+				while (this.textBlockHeight > (this.canvas.height * 0.5)) {
 					// make the font size smaller and try again
 					this._setFont(--this.fontSize);
 					this.lineHeight = this.fontSize;
 					this._wrap();
-
-					console.log('wrapping, font size is now' + this.fontSize);
 				}
 			}
 
