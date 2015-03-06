@@ -78,7 +78,16 @@
 				this._setFont(--fontSize);
 				this.lineHeight = this.fontSize;
 			} else {
+
 				this._wrap();
+				while (this.textBlockHeight > this.canvas.height) {
+					// make the font size smaller and try again
+					this._setFont(--this.fontSize);
+					this.lineHeight = this.fontSize;
+					this._wrap();
+
+					console.log('wrapping, font size is now' + this.fontSize);
+				}
 			}
 
 			if (this.justifyLines && this.lineBreak === 'auto') {
@@ -141,6 +150,9 @@
 		},
 
 		_breakText: function(words) {
+
+			this.lines = [];
+			
 			for (var i = 0,j = 0; i < words.length; j++) {
 				this.lines[j] = '';
 
