@@ -80,8 +80,8 @@
 			} else {
 
 				this._wrap();
-				console.log(this.canvas.height * 0.5);
-				while (this.textBlockHeight > (this.canvas.height * 0.5)) {
+
+				while (this.textBlockHeight > (this.canvas.height * this.percentHeight)) {
 					// make the font size smaller and try again
 					this._setFont(--this.fontSize);
 					this.lineHeight = this.fontSize;
@@ -240,7 +240,7 @@
 
 		_setAlignY: function() {
 			if (this.verticalAlign == 'middle') {
-				this.textPos.y = (EL_HEIGHT - this.textBlockHeight) / 2;
+				this.textPos.y = this.yOffset + ((EL_HEIGHT - this.textBlockHeight) / 2);
 			} else if (this.verticalAlign == 'bottom') {
 				this.textPos.y = EL_HEIGHT - this.textBlockHeight - this.paddingY;
 			} else {
