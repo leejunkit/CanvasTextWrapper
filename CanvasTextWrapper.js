@@ -22,7 +22,9 @@
 		paddingX: 0,            // 0px left & right text padding relatively to canvas or its container
 		paddingY: 0,            // 0px top & bottom text padding relatively to canvas or its container
 		fitParent: false,       // text is set to fit canvas width
-		strokeText: false       // text is stroked according to context configuration
+		strokeText: false,		// text is stroked according to context configuration
+		yOffset: 0,
+		percentHeight: 0       
 	};
 
 	var CanvasTextWrapper = function(canvas,text,options) {
